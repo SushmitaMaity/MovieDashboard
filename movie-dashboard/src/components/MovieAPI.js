@@ -21,6 +21,7 @@ export const fetchToken = async () => {
     return token;
   } catch (error) {
     console.log(error);
+    throw new Error("Failed to fetch Token Id, please check API KEY");
   }
 };
 
@@ -40,6 +41,7 @@ export const createSessionId = async () => {
     })
     .catch((error) => {
       console.log(error);
+      throw new Error("Failed to create Session Id, please check API KEY & Auth bearer");
     });
 };
 
