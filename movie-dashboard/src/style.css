@@ -1,0 +1,195 @@
+/* App.css */
+.sticky-header {
+   /* Ensure the headers are above the scrolling content */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  height: 80px;
+}
+.app-container {
+  /* border: 3px solid #fff;
+  padding: 20px; */
+  display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+.appChild-container{
+  /* width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red; */
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  margin-top: 10%;
+  margin-left: 20px;
+}
+
+.movie-card {
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.movie-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  margin-top: 2px;
+}
+
+.movie-release-date {
+  margin-bottom: 10px;
+  margin-top: 1px;
+}
+.button-container{
+  display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+.favorited{
+  background-color: #ff6e6f;
+  color: white;;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.favorite-button {
+  background-color: white;
+  color: rgb(187, 24, 45);
+  border-color: #ff6e6f;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.movie-details {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.movie-description {
+  margin-bottom: 10px;
+}
+
+.movie-rating {
+  font-weight: bold;
+}
+/* Responsive Styles */
+
+@media screen and (min-width: 768px) {
+  .app-container {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .appChild-container {
+    width: 100%;
+    float: left;
+    /* padding: 20px;  */
+    /* border: 2px solid red;*/
+  }
+
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-top: 0;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 10px;
+    margin-top: 5%;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .favorite-button,
+  .favorited {
+    width: 100%;
+  }
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
+
+.popup-content h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  margin-bottom: 10px;
+}
+
+.popup-content button {
+  /* padding: 8px 16px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; */
+  background-color: white;
+  color: rgb(187, 24, 45);
+  border-color: #ff6e6f;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #ff6e6f;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  .popup-content {
+    max-width: 100%;
+    width: 90%;
+  }
+  
+  .popup-content h4 {
+    font-size: 16px;
+  }
+}
