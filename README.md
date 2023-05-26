@@ -40,3 +40,9 @@ This is a movie application that allows users to browse, favorite, and unfavorit
 6. Access the application in your web browser by visiting `http://localhost:3000`.
 
 Enjoy browsing and favoriting movies in the application!
+
+Screenshot of Desktop Application:
+ <img src="https://github.com/SushmitaMaity/MovieDashboard/blob/main/Desktop_Responsive.png" >
+ 
+Screenshot of Mobile Application:
+ <img src="https://github.com/SushmitaMaity/MovieDashboard/blob/main/Mobile_responsive.png" >
