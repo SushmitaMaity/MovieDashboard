@@ -1,27 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const FavoriteMovies = ({ movies, onFavoriteClick, onMovieClick }) => {
-  // const [favoriteMovies, setFavoriteMovies] = useState([]);
+const FavoriteMovies = ({ movies, onFavoriteClick }) => {
 
-  // useEffect(() => {
-  //   const storedFavoriteMovies = localStorage.getItem("favoriteMovies");
-  //   if (storedFavoriteMovies) {
-  //     setFavoriteMovies(JSON.parse(storedFavoriteMovies));
-  //   }
-  // }, []);
-
-  // const removeMovieFromFavorites = (movieId) => {
-  //   const updatedFavoriteMovies = favoriteMovies.filter(
-  //     (movie) => movie.id !== movieId
-  //   );
-  //   setFavoriteMovies(updatedFavoriteMovies);
-  //   localStorage.setItem("favoriteMovies", JSON.stringify(updatedFavoriteMovies));
-  // };
-console.log("favoriteMovies in FavoriteMovies component", movies);
   return (
-    
     <div>
-      {/* <h2>Favorite Movies</h2> */}
       {movies.length > 0 ? (
         <div className="container">
           {movies.map((movie) => (

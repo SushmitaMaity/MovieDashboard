@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {fetchToken, createSessionId } from "./MovieAPI";
+import React, { useEffect } from "react";
+import {fetchToken } from "./MovieAPI";
 
 const Welcome = () => {
     useEffect(() => {
@@ -7,10 +7,6 @@ const Welcome = () => {
         const fetchData = async () => {
           try {
             const token = await fetchToken();
-            console.log("token in useEffect", token);
-            
-            // const sessionId = await createSessionId();
-            // console.log("session ID in useEffect", sessionId);
           } catch (error) {
             console.log("error", error);
           } finally {
@@ -20,6 +16,6 @@ const Welcome = () => {
       
         return () =>fetchData();
       }, []);
-return(<h1>Welcome to Movie App</h1>);
+return(<div className="welcome"><h1>Welcome to Movie App</h1></div>);
 } 
 export default Welcome;

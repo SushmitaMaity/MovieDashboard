@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const API_KEY = "078cd3e07f5e1ee5008a8ab06892b51c";
-
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
-const FAVORITE_MOVIES_ENDPOINT = "https://api.themoviedb.org/3/account/19611763/favorite";
+const FAVORITE_MOVIES_ENDPOINT = `https://api.themoviedb.org/3/account/${process.env.REACT_APP_ACCOUNT_ID}/favorite`;
 
 
 export const fetchToken = async () => {
@@ -15,7 +14,6 @@ export const fetchToken = async () => {
       },
     });
     const token = data.request_token;
-    console.log("token: ", token);
     if (token) {
       localStorage.setItem('request_token', token);
       window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=${window.location.origin}/approved`;
@@ -71,7 +69,7 @@ export const addFavoriteMovie = async (movie) => {
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzhjZDNlMDdmNWUxZWU1MDA4YThhYjA2ODkyYjUxYyIsInN1YiI6IjY0NmJiN2NkMzNhMzc2MDE3NWQzZWEyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jQHsQUidU65vio4U19BSORjMOMD4vfPACK9eVxgaM4k'
+     Authorization: 'Bearer '+process.env.REACT_APP_BEARER_TOKEN
     },
     data: {media_type: 'movie', media_id: movie.id, favorite: true}
   };
@@ -93,7 +91,7 @@ export const removeFavoriteMovie = async (movie) => {
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzhjZDNlMDdmNWUxZWU1MDA4YThhYjA2ODkyYjUxYyIsInN1YiI6IjY0NmJiN2NkMzNhMzc2MDE3NWQzZWEyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jQHsQUidU65vio4U19BSORjMOMD4vfPACK9eVxgaM4k'
+      Authorization: 'Bearer '+process.env.REACT_APP_BEARER_TOKEN
     },
     data: {media_type: 'movie', media_id: movie.id, favorite: false}
   };
@@ -111,13 +109,12 @@ export const fetchFavorites = async (page) => {
     params: {language: 'en-US', page: '1', sort_by: 'created_at.asc'},
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNzhjZDNlMDdmNWUxZWU1MDA4YThhYjA2ODkyYjUxYyIsInN1YiI6IjY0NmJiN2NkMzNhMzc2MDE3NWQzZWEyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jQHsQUidU65vio4U19BSORjMOMD4vfPACK9eVxgaM4k'
+  Authorization: 'Bearer '+process.env.REACT_APP_BEARER_TOKEN
     }
   };
     try {
       // Perform an API call or any other method to fetch the updated list of favorite movies
       const response = await axios.request(options); // Replace "/api/favorites" with the actual endpoint for fetching favorites
-      console.log("response", response.data.results);
       if (response.status !== 200) {
         throw new Error("Failed to fetch favorite movies");
       }
