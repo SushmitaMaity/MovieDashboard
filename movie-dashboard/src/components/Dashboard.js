@@ -96,7 +96,7 @@ const FavMovies = () => {
     <div className="app-container">
       <div className="appChild-container">
         <div className="sticky-header">
-          <h2>Movie List</h2>
+          <h2>Movies List</h2>
         </div>
         <MovieList
           movies={movies}
@@ -111,7 +111,7 @@ const FavMovies = () => {
         style={{ height: "700px", overflowY: "scroll" }}
       >
         <div className="sticky-header">
-          <h2>Favorite Movies</h2>
+          <h2>Your Favorites</h2>
         </div>
         <FavoriteMovies
           movies={favoriteMovies}
